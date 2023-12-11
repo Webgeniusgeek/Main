@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+    .random-words {
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 10px;
+    }
+    #generate-button {
+      padding: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const wordList = ['apple', 'banana', 'cherry', 'dog', 'elephant', 'fish', 'giraffe', 'happiness', 'ice cream', 'jazz', 'kangaroo', 'lemon', 'mango', 'nest', 'ocean', 'penguin', 'quasar', 'rainbow', 'sunset', 'tiger', 'umbrella', 'victory', 'whale', 'xylophone', 'yoga', 'zeppelin'];
+      const randomWordsContainer = document.getElementById('random-words-container');
+      const generateButton = document.getElementById('generate-button');
+      
+      generateButton.addEventListener('click', function() {
+        randomWordsContainer.innerHTML = ''; // Clear previous words
+        
+        for (let i = 0; i < 12; i++) {
+          const randomIndex = Math.floor(Math.random() * wordList.length);
+          const randomWord = wordList[randomIndex];
+          const wordElement = document.createElement('span');
+          wordElement.textContent = randomWord + ' ';
+          randomWordsContainer.appendChild(wordElement);
+        }
+      });
+    });
+  </script>
+</head>
+<body>
+  <div id="random-words-container" class="random-words"></div>
+  <button id="generate-button">Generate Random Words</button>
+</body>
+</html>
